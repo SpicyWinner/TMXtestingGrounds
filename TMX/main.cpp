@@ -14,7 +14,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML window", sf::Style::Fullscreen);
     window.setFramerateLimit(200);
     tmx::Map map;
-    map.load("assets/Test02.tmx");
+    map.load("assets/Level_Map.tmx");
 
     const auto& layers = map.getLayers();
     const auto& collider = layers[1]->getLayerAs<tmx::ObjectGroup>();
@@ -77,7 +77,6 @@ int main()
         }
 
         backGround.update(sf::Time(animationClock.getElapsedTime()));
-
         gameView.setCenter(player.getPosition());
 
         if ((gameView.getCenter().x - gameView.getSize().x / 2) < 0) gameView.move(sf::Vector2f(gameView.getSize().x / 2 - player.getPosition().x, 0));
